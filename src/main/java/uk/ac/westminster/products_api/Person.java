@@ -17,6 +17,7 @@ public class Person {
 
     private String name;
 
+
     public Person() {
     }
 
@@ -32,6 +33,12 @@ public class Person {
         this.name = name;
     }
 
-    // TODO (Activity 3): add the "email" field and its getter here.
+    // TODO (Activity 3): add the "email" field and its getter here.-DONE
+    private String email;
+
+    public String getEmail(){
+        return this.email;
+    }
+
 
 }
