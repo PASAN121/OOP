@@ -18,7 +18,12 @@ public class Product {
         return id;
     }
 
-    public String getName() {
+//    public String getName() {
+//        return name;
+//    }
+    //name is private and has no getName(), so Jackson has no
+    // way to read it and skips it. id and price still have getters, so they appear.
+    public String getName(){
         return name;
     }
 
