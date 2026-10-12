@@ -14,7 +14,7 @@ public class ProductService {
     private Long nextId = 1L; // Client only sends name + price, never an id
 
     public List<Product> getAllProducts() {
-        return products;
+        return List.copyOf(products);//to manage the later acces through the productcontroller
     }
 
     public Product addProduct(Product product) {

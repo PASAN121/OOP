@@ -1,3 +1,5 @@
+`````mermaid
+
 classDiagram
     class Product {
         -Long id
@@ -31,3 +33,4 @@ classDiagram
 
     ProductController ..> ProductService
     ProductService --> Product
+`````
