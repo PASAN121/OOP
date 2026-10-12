@@ -18,11 +18,25 @@ public class Product {
         return id;
     }
 
-//    public String getName() {
+//    private String getName() {
 //        return name;
 //    }
     //name is private and has no getName(), so Jackson has no
     // way to read it and skips it. id and price still have getters, so they appear.
+
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     public String getName(){
         return name;
     }
