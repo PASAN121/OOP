@@ -1,23 +1,23 @@
 ```mermaid
 classDiagram
   class Customer {
-    -Long id
-    -String name
-    -String email
-    -Address address
+    -id : Long
+    -name : String
+    -email : String
+    -address : Address
     +Customer()
-    +Customer(Long id, String name, String email, Address address)
+    +Customer(id : Long, name : String, email : String, address : Address)
     +getId() Long
     +getName() String
     +getEmail() String
     +getAddress() Address
   }
   class Address {
-    -String street
-    -String city
-    -String postcode
+    -street : String
+    -city : String
+    -postcode : String
     +Address()
-    +Address(String street, String city, String postcode)
+    +Address(street : String, city : String, postcode : String)
     +getStreet() String
     +getCity() String
     +getPostcode() String

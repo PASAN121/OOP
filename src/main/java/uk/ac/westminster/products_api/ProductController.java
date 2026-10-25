@@ -9,8 +9,12 @@ import java.util.List;
 
 public class ProductController {
 
-    @Autowired
-    private ProductService productService;
+
+    private final ProductService productService;
+    @Autowired//optional controller has only one constructor
+    public ProductController(ProductService productService){
+        this.productService=productService;
+    }
 
     //Activity2
     @GetMapping("/products")
@@ -42,7 +46,10 @@ public class ProductController {
 
 
 
-
+    @GetMapping("/physicalproduct")
+    public List<PhysicalProduct> getPhysicalProducts() {
+        return productService.getPhysicalProducts();
+    }
 
 
 

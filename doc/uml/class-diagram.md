@@ -1,36 +1,58 @@
-`````mermaid
-
+```mermaid
 classDiagram
     class Product {
-        -Long id
-        -String name
-        -double price
+        -id : Long
+        -name : String
+        -price : double
+        +Product()
+        +Product(id : Long, name : String, price : double)
         +getId() Long
         +getName() String
         +getPrice() double
-        +setId(Long id) void
-        +setName(String name) void
-        +setPrice(double price) void
+        +setId(id : Long) void
+        +setName(name : String) void
+        +setPrice(price : double) void
+    }
+
+    class DigitalProduct {
+        -downloadUrl : String
+        -fileSizeMb : double
+        +DigitalProduct()
+        +DigitalProduct(id : Long, name : String, price : double, downloadUrl : String, fileSizeMb : double)
+        +getDownloadUrl() String
+        +getFileSizeMb() double
+    }
+
+    class PhysicalProduct {
+        -weightKg : double
+        -dimension : String
+        +PhysicalProduct()
+        +PhysicalProduct(id : Long, name : String, price : double, weightKg : double, dimension : String)
+        +getWeightKg() double
+        +getDimension() String
     }
 
     class ProductService {
-        -List~Product~ products
-        -Long nextId
+        -products : List~Product~
+        -nextId : Long
         +getAllProducts() List~Product~
-        +getProductById(Long id) Optional~Product~
-        +addProduct(Product product) Product
-        +deleteProduct(Long id) void
-        +findByName(String name) List~Product~
+        +getProductById(id : Long) Optional~Product~
+        +addProduct(product : Product) Product
+        +deleteProduct(id : Long) void
+        +findByName(name : String) List~Product~
     }
 
     class ProductController {
-        -ProductService productService
+        -productService : ProductService
         +getAllProducts() List~Product~
-        +getProductById(Long id) Product
-        +addProduct(Product product) Product
-        +deleteProduct(Long id) void
+        +getProductById(id : Long) Product
+        +addProduct(product : Product) Product
+        +deleteProduct(id : Long) void
+        +search(name : String) List~Product~
     }
 
+    Product <|-- DigitalProduct
+    Product <|-- PhysicalProduct
     ProductController ..> ProductService
     ProductService --> Product
-`````
+```
