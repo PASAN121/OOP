@@ -11,6 +11,17 @@
         private List<Product> products = new ArrayList<>();
         private Long nextId = 1L;
 
+        public List<String> getAllSummaries() {
+
+            List<String> summaries = new ArrayList<>();
+
+            for (Product p : products) {
+                summaries.add(p.getSummary());
+            }
+
+            return summaries;
+        }
+
 
         public ProductService() {
             addProduct(new PhysicalProduct(null, "Laptop", 250000.0, 1.8, "35x24x2 cm"));
@@ -51,4 +62,5 @@
         public List<Product> findByName(String name) {
             return products.stream().filter(p -> p.getName().contains(name)).toList();
         }
+              
     }

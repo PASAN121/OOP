@@ -26,9 +26,10 @@ public class ProductController {
     public Product getProductById(@PathVariable Long id) {
         return productService.getProductById(id).orElse(null);
     }
-
+//Temporary: Product is abstract, Jackson can't build it from JSON, so we use a concrete subclass for now.
     @PostMapping("/products")
-    public Product addProduct(@RequestBody Product product) {
+    public Product addProduct(@RequestBody DigitalProduct product) {
+
         return productService.addProduct(product);
     }
 
@@ -51,7 +52,10 @@ public class ProductController {
         return productService.getPhysicalProducts();
     }
 
-
+    @GetMapping("/products/summaries")
+    public List<String> getSummaries() {
+        return productService.getAllSummaries();
+    }
 
 
 }
